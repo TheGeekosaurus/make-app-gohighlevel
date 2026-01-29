@@ -1,0 +1,46 @@
+{
+  "name": "gohighlevel",
+  "label": "GoHighLevel",
+  "description": "Integration with GoHighLevel CRM for social media management and media uploads",
+  "version": "1.0.1",
+  "author": "",
+  "baseUrl": "https://services.leadconnectorhq.com",
+  "apiVersion": "2021-07-28",
+  "authType": "oauth2",
+  "tokenType": "Location",
+  "modules": [
+    {
+      "name": "upload-media",
+      "label": "Upload Media",
+      "type": "action",
+      "description": "Upload a file to HighLevel media storage"
+    },
+    {
+      "name": "schedule-post",
+      "label": "Schedule Social Post",
+      "type": "action",
+      "description": "Create and schedule a social media post"
+    }
+  ],
+  "rpcs": [],
+  "webhooks": [],
+  "changelog": [
+    {
+      "version": "1.0.1",
+      "date": "2026-01-28",
+      "changes": [
+        "Fixed OAuth refresh flow - added condition and preserved locationId/companyId/userId on refresh"
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "date": "2026-01-27",
+      "changes": [
+        "Initial release",
+        "OAuth 2.0 authentication with Location-level tokens",
+        "Upload Media module",
+        "Schedule Social Post module"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "url": "/social-media-posting/{{connection.locationId}}/posts",
+  "method": "POST",
+  "body": {
+    "accountIds": "{{parameters.accountIds}}",
+    "summary": "{{parameters.summary}}",
+    "{{if(parameters.media)}}media{{endif}}": "{{parameters.media}}",
+    "type": "{{parameters.type}}",
+    "status": "{{parameters.status}}",
+    "{{if(parameters.scheduleDate)}}scheduleDate{{endif}}": "{{parameters.scheduleDate}}",
+    "{{if(parameters.followUpComment)}}followUpComment{{endif}}": "{{parameters.followUpComment}}",
+    "{{if(parameters.mediaOptimization)}}mediaOptimization{{endif}}": "{{parameters.mediaOptimization}}",
+    "{{if(parameters.tags)}}tags{{endif}}": "{{parameters.tags}}",
+    "{{if(parameters.categoryId)}}categoryId{{endif}}": "{{parameters.categoryId}}",
+    "userId": "{{connection.userId}}",
+
+    "{{if(parameters.enableOgTags)}}ogTagsDetails{{endif}}": {
+      "{{if(parameters.ogTitle)}}ogTitle{{endif}}": "{{parameters.ogTitle}}",
+      "{{if(parameters.metaLink)}}metaLink{{endif}}": "{{parameters.metaLink}}",
+      "{{if(parameters.metaImage)}}metaImage{{endif}}": "{{parameters.metaImage}}"
+    },
+
+    "{{if(parameters.customizeFacebook)}}facebookPostDetails{{endif}}": {
+      "type": "{{ifempty(parameters.facebookType, parameters.type)}}"
+    },
+
+    "{{if(parameters.customizeInstagram)}}instagramPostDetails{{endif}}": {
+      "type": "{{ifempty(parameters.instagramType, parameters.type)}}",
+      "{{if(parameters.instagramCollaborators)}}collaborators{{endif}}": "{{split(parameters.instagramCollaborators, ',')}}"
+    },
+
+    "{{if(parameters.customizeLinkedIn)}}linkedinPostDetails{{endif}}": {
+      "postAsPdf": "{{ifempty(parameters.linkedinPostAsPdf, false)}}",
+      "{{if(parameters.linkedinPdfTitle)}}pdfTitle{{endif}}": "{{parameters.linkedinPdfTitle}}"
+    },
+
+    "{{if(parameters.customizeTikTok)}}tiktokPostDetails{{endif}}": {
+      "privacyLevel": "{{ifempty(parameters.tiktokPrivacyLevel, 'PUBLIC_TO_EVERYONE')}}",
+      "enableComment": "{{ifempty(parameters.tiktokEnableComment, true)}}",
+      "enableDuet": "{{ifempty(parameters.tiktokEnableDuet, true)}}",
+      "enableStitch": "{{ifempty(parameters.tiktokEnableStitch, true)}}",
+      "{{if(parameters.tiktokVideoDisclosure)}}videoDisclosure{{endif}}": "{{parameters.tiktokVideoDisclosure}}",
+      "{{if(parameters.tiktokPromoteYourBrand)}}promoteYourBrand{{endif}}": "{{parameters.tiktokPromoteYourBrand}}",
+      "{{if(parameters.tiktokPromoteOtherBrand)}}promoteOtherBrand{{endif}}": "{{parameters.tiktokPromoteOtherBrand}}"
+    },
+
+    "{{if(parameters.customizeYouTube)}}youtubePostDetails{{endif}}": {
+      "title": "{{ifempty(parameters.youtubeTitle, 'Untitled')}}",
+      "type": "{{ifempty(parameters.youtubeType, 'video')}}",
+      "privacyLevel": "{{ifempty(parameters.youtubePrivacyLevel, 'public')}}"
+    },
+
+    "{{if(parameters.customizeGMB)}}gmbPostDetails{{endif}}": {
+      "gmbEventType": "{{ifempty(parameters.gmbEventType, 'STANDARD')}}",
+      "{{if(parameters.gmbTitle)}}title{{endif}}": "{{parameters.gmbTitle}}",
+      "{{if(parameters.gmbStartDate)}}startDate{{endif}}": {
+        "startDate": {
+          "year": "{{formatDate(parameters.gmbStartDate, 'YYYY')}}",
+          "month": "{{formatDate(parameters.gmbStartDate, 'M')}}",
+          "day": "{{formatDate(parameters.gmbStartDate, 'D')}}"
+        },
+        "startTime": {
+          "hours": "{{formatDate(parameters.gmbStartDate, 'H')}}",
+          "minutes": "{{formatDate(parameters.gmbStartDate, 'm')}}",
+          "seconds": 0
+        }
+      },
+      "{{if(parameters.gmbEndDate)}}endDate{{endif}}": {
+        "endDate": {
+          "year": "{{formatDate(parameters.gmbEndDate, 'YYYY')}}",
+          "month": "{{formatDate(parameters.gmbEndDate, 'M')}}",
+          "day": "{{formatDate(parameters.gmbEndDate, 'D')}}"
+        },
+        "endTime": {
+          "hours": "{{formatDate(parameters.gmbEndDate, 'H')}}",
+          "minutes": "{{formatDate(parameters.gmbEndDate, 'm')}}",
+          "seconds": 0
+        }
+      },
+      "{{if(parameters.gmbActionType)}}actionType{{endif}}": "{{parameters.gmbActionType}}",
+      "{{if(parameters.gmbUrl)}}url{{endif}}": "{{parameters.gmbUrl}}",
+      "{{if(parameters.gmbCouponCode)}}couponCode{{endif}}": "{{parameters.gmbCouponCode}}",
+      "{{if(parameters.gmbRedeemOnlineUrl)}}redeemOnlineUrl{{endif}}": "{{parameters.gmbRedeemOnlineUrl}}",
+      "{{if(parameters.gmbTermsConditions)}}termsConditions{{endif}}": "{{parameters.gmbTermsConditions}}"
+    },
+
+    "{{if(parameters.customizePinterest)}}pinterestPostDetails{{endif}}": {
+      "{{if(parameters.pinterestTitle)}}title{{endif}}": "{{parameters.pinterestTitle}}",
+      "{{if(parameters.pinterestLink)}}link{{endif}}": "{{parameters.pinterestLink}}",
+      "{{if(parameters.pinterestBoardId)}}boardIds{{endif}}": "{{parameters.pinterestBoardId}}"
+    },
+
+    "{{if(parameters.enableApproval)}}postApprovalDetails{{endif}}": {
+      "approver": "{{parameters.approverId}}",
+      "{{if(parameters.requesterNote)}}requesterNote{{endif}}": "{{parameters.requesterNote}}",
+      "approvalStatus": "pending"
+    }
+  },
+  "response": {
+    "output": "{{body}}"
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "example_field",
+    "type": "text",
+    "label": "Example Field",
+    "required": true,
+    "help": "Description of what this field does"
+  },
+  {
+    "name": "optional_field",
+    "type": "text",
+    "label": "Optional Field",
+    "required": false,
+    "help": "This field is optional"
+  },
+  {
+    "name": "select_field",
+    "type": "select",
+    "label": "Select Option",
+    "required": false,
+    "options": [
+      { "label": "Option 1", "value": "option1" },
+      { "label": "Option 2", "value": "option2" }
+    ]
+  }
+]

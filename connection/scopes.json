@@ -1,0 +1,16 @@
+{
+  "contacts.readonly": "Read Contacts",
+  "contacts.write": "Create/Update Contacts",
+  "locations.readonly": "Read Location Information",
+  "locations.write": "Write Location Information",
+  "oauth.readonly": "Read OAuth Connections",
+  "oauth.write": "Manage OAuth Connections",
+  "socialplanner/account.readonly": "Read Social Media Accounts",
+  "socialplanner/post.readonly": "Read Social Media Posts",
+  "socialplanner/post.write": "Create/Manage Social Media Posts",
+  "socialplanner/tag.readonly": "Read Social Media Tags",
+  "socialplanner/category.readonly": "Read Social Media Categories",
+  "users.readonly": "Read Users",
+  "medias.readonly": "Read Media Files",
+  "medias.write": "Upload/Manage Media Files"
+}

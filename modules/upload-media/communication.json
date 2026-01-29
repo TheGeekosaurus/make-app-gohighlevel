@@ -1,0 +1,23 @@
+{
+  "url": "/medias/upload-file",
+  "method": "POST",
+  "qs": {
+    "locationId": "{{connection.locationId}}"
+  },
+  "type": "multipart/form-data",
+  "body": {
+    "file": {
+      "value": "{{parameters.file_data}}",
+      "options": {
+        "filename": "{{parameters.file_name}}"
+      }
+    },
+    "{{if(parameters.parentId)}}parentId{{endif}}": "{{parameters.parentId}}"
+  },
+  "response": {
+    "output": {
+      "fileId": "{{body.fileId}}",
+      "url": "{{body.url}}"
+    }
+  }
+}

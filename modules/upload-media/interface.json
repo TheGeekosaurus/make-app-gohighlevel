@@ -1,0 +1,12 @@
+[
+  {
+    "name": "fileId",
+    "type": "text",
+    "label": "File ID"
+  },
+  {
+    "name": "url",
+    "type": "url",
+    "label": "Media URL"
+  }
+]

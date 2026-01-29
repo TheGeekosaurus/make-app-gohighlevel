@@ -1,0 +1,69 @@
+{
+  "authorize": {
+    "url": "https://marketplace.leadconnectorhq.com/oauth/chooselocation",
+    "qs": {
+      "response_type": "code",
+      "client_id": "{{common.clientId}}",
+      "redirect_uri": "{{oauth.makeRedirectUri}}",
+      "scope": "{{join(oauth.scope, ' ')}}"
+    }
+  },
+  "token": {
+    "url": "https://services.leadconnectorhq.com/oauth/token",
+    "method": "POST",
+    "type": "urlencoded",
+    "body": {
+      "client_id": "{{common.clientId}}",
+      "client_secret": "{{common.clientSecret}}",
+      "grant_type": "authorization_code",
+      "code": "{{query.code}}",
+      "user_type": "Location",
+      "redirect_uri": "{{oauth.makeRedirectUri}}"
+    },
+    "condition": "{{query.code}}",
+    "response": {
+      "data": {
+        "accessToken": "{{body.access_token}}",
+        "refreshToken": "{{body.refresh_token}}",
+        "expires": "{{addSeconds(now, body.expires_in)}}",
+        "locationId": "{{body.locationId}}",
+        "companyId": "{{body.companyId}}",
+        "userId": "{{body.userId}}"
+      },
+      "temp": {
+        "locationId": "{{body.locationId}}"
+      }
+    }
+  },
+  "refresh": {
+    "condition": "{{connection.expires < now}}",
+    "url": "https://services.leadconnectorhq.com/oauth/token",
+    "method": "POST",
+    "type": "urlencoded",
+    "body": {
+      "client_id": "{{common.clientId}}",
+      "client_secret": "{{common.clientSecret}}",
+      "grant_type": "refresh_token",
+      "refresh_token": "{{connection.refreshToken}}",
+      "user_type": "Location"
+    },
+    "response": {
+      "data": {
+        "accessToken": "{{body.access_token}}",
+        "refreshToken": "{{body.refresh_token}}",
+        "expires": "{{addSeconds(now, body.expires_in)}}",
+        "locationId": "{{body.locationId}}",
+        "companyId": "{{body.companyId}}",
+        "userId": "{{body.userId}}"
+      }
+    }
+  },
+  "info": {
+    "url": "https://services.leadconnectorhq.com/locations/{{connection.locationId}}",
+    "method": "GET",
+    "headers": {
+      "Authorization": "Bearer {{connection.accessToken}}",
+      "Version": "2021-07-28"
+    }
+  }
+}

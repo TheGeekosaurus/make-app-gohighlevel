@@ -1,0 +1,17 @@
+{
+  "url": "/endpoint-path",
+  "method": "POST",
+  "headers": {},
+  "qs": {
+    "locationId": "{{connection.locationId}}"
+  },
+  "body": {
+    "exampleField": "{{parameters.example_field}}"
+  },
+  "response": {
+    "output": {
+      "id": "{{body.id}}",
+      "status": "{{body.status}}"
+    }
+  }
+}

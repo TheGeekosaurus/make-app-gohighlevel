@@ -1,0 +1,403 @@
+[
+  {
+    "name": "accountIds",
+    "type": "select",
+    "label": "Social Accounts",
+    "required": true,
+    "multiple": true,
+    "options": "rpc://getSocialAccounts",
+    "help": "Select the connected social media accounts to post to"
+  },
+  {
+    "name": "summary",
+    "type": "text",
+    "label": "Post Content",
+    "required": true,
+    "multiline": true,
+    "help": "Default content for all platforms (will be trimmed per platform limits)"
+  },
+  {
+    "name": "media",
+    "type": "array",
+    "label": "Media",
+    "spec": [
+      {
+        "name": "url",
+        "type": "url",
+        "label": "Media URL",
+        "required": true
+      },
+      {
+        "name": "type",
+        "type": "select",
+        "label": "Media Type",
+        "options": [
+          {"label": "Image (PNG)", "value": "image/png"},
+          {"label": "Image (JPEG)", "value": "image/jpeg"},
+          {"label": "Image (GIF)", "value": "image/gif"},
+          {"label": "Video (MP4)", "value": "video/mp4"},
+          {"label": "Video (MOV)", "value": "video/quicktime"}
+        ]
+      },
+      {
+        "name": "caption",
+        "type": "text",
+        "label": "Caption"
+      },
+      {
+        "name": "thumbnail",
+        "type": "url",
+        "label": "Thumbnail URL",
+        "help": "Custom thumbnail for videos"
+      }
+    ]
+  },
+  {
+    "name": "type",
+    "type": "select",
+    "label": "Post Type",
+    "required": true,
+    "default": "post",
+    "options": [
+      {"label": "Post", "value": "post"},
+      {"label": "Story", "value": "story"},
+      {"label": "Reel/Short", "value": "reel"}
+    ]
+  },
+  {
+    "name": "status",
+    "type": "select",
+    "label": "Status",
+    "default": "scheduled",
+    "options": [
+      {"label": "Draft", "value": "draft"},
+      {"label": "Scheduled", "value": "scheduled"},
+      {"label": "Publish Now", "value": "published"}
+    ]
+  },
+  {
+    "name": "scheduleDate",
+    "type": "date",
+    "label": "Schedule Date/Time",
+    "time": true
+  },
+  {
+    "name": "followUpComment",
+    "type": "text",
+    "label": "Follow-up Comment",
+    "help": "First comment on the post (not available for TikTok/GMB, 280 char limit for Twitter)"
+  },
+  {
+    "name": "mediaOptimization",
+    "type": "boolean",
+    "label": "Optimize Media",
+    "default": true,
+    "help": "Automatically optimize images for each platform"
+  },
+  {
+    "name": "tags",
+    "type": "select",
+    "label": "Tags",
+    "multiple": true,
+    "options": "rpc://getTags",
+    "help": "Add tags to organize your post"
+  },
+  {
+    "name": "categoryId",
+    "type": "select",
+    "label": "Category",
+    "options": "rpc://getCategories",
+    "help": "Assign a category to this post"
+  },
+
+  {
+    "name": "enableOgTags",
+    "type": "boolean",
+    "label": "🔗 Customize Link Preview (OG Tags)",
+    "nested": [
+      {
+        "name": "ogTitle",
+        "type": "text",
+        "label": "Link Preview Title",
+        "help": "Title shown when link is shared"
+      },
+      {
+        "name": "metaLink",
+        "type": "url",
+        "label": "Link URL",
+        "help": "The URL being shared"
+      },
+      {
+        "name": "metaImage",
+        "type": "url",
+        "label": "Preview Image URL",
+        "help": "Image shown in the link preview"
+      }
+    ]
+  },
+
+  {
+    "name": "customizeFacebook",
+    "type": "boolean",
+    "label": "⚙️ Customize Facebook",
+    "nested": [
+      {
+        "name": "facebookType",
+        "type": "select",
+        "label": "Facebook Post Type",
+        "options": [
+          {"label": "Post", "value": "post"},
+          {"label": "Story", "value": "story"},
+          {"label": "Reel", "value": "reel"}
+        ]
+      }
+    ]
+  },
+
+  {
+    "name": "customizeInstagram",
+    "type": "boolean",
+    "label": "⚙️ Customize Instagram",
+    "nested": [
+      {
+        "name": "instagramType",
+        "type": "select",
+        "label": "Instagram Post Type",
+        "options": [
+          {"label": "Post", "value": "post"},
+          {"label": "Story", "value": "story"},
+          {"label": "Reel", "value": "reel"}
+        ]
+      },
+      {
+        "name": "instagramCollaborators",
+        "type": "text",
+        "label": "Collaborator Usernames",
+        "help": "Comma-separated usernames (only for posts and reels)"
+      }
+    ]
+  },
+
+  {
+    "name": "customizeLinkedIn",
+    "type": "boolean",
+    "label": "⚙️ Customize LinkedIn",
+    "nested": [
+      {
+        "name": "linkedinPostAsPdf",
+        "type": "boolean",
+        "label": "Post as PDF Carousel"
+      },
+      {
+        "name": "linkedinPdfTitle",
+        "type": "text",
+        "label": "PDF Title"
+      }
+    ]
+  },
+
+  {
+    "name": "customizeTikTok",
+    "type": "boolean",
+    "label": "⚙️ Customize TikTok",
+    "nested": [
+      {
+        "name": "tiktokPrivacyLevel",
+        "type": "select",
+        "label": "Privacy Level",
+        "default": "PUBLIC_TO_EVERYONE",
+        "options": [
+          {"label": "Public", "value": "PUBLIC_TO_EVERYONE"},
+          {"label": "Friends Only", "value": "MUTUAL_FOLLOW_FRIENDS"},
+          {"label": "Private", "value": "SELF_ONLY"}
+        ]
+      },
+      {
+        "name": "tiktokEnableComment",
+        "type": "boolean",
+        "label": "Enable Comments",
+        "default": true
+      },
+      {
+        "name": "tiktokEnableDuet",
+        "type": "boolean",
+        "label": "Enable Duet",
+        "default": true
+      },
+      {
+        "name": "tiktokEnableStitch",
+        "type": "boolean",
+        "label": "Enable Stitch",
+        "default": true
+      },
+      {
+        "name": "tiktokVideoDisclosure",
+        "type": "boolean",
+        "label": "Video Disclosure",
+        "help": "Disclose if content is promotional"
+      },
+      {
+        "name": "tiktokPromoteYourBrand",
+        "type": "boolean",
+        "label": "Promotes Your Brand"
+      },
+      {
+        "name": "tiktokPromoteOtherBrand",
+        "type": "boolean",
+        "label": "Promotes Other Brand"
+      }
+    ]
+  },
+
+  {
+    "name": "customizeYouTube",
+    "type": "boolean",
+    "label": "⚙️ Customize YouTube",
+    "nested": [
+      {
+        "name": "youtubeTitle",
+        "type": "text",
+        "label": "Video Title",
+        "default": "Untitled"
+      },
+      {
+        "name": "youtubeType",
+        "type": "select",
+        "label": "YouTube Post Type",
+        "default": "video",
+        "options": [
+          {"label": "Video", "value": "video"},
+          {"label": "Short", "value": "short"}
+        ]
+      },
+      {
+        "name": "youtubePrivacyLevel",
+        "type": "select",
+        "label": "Privacy Level",
+        "default": "public",
+        "options": [
+          {"label": "Public", "value": "public"},
+          {"label": "Unlisted", "value": "unlisted"},
+          {"label": "Private", "value": "private"}
+        ]
+      }
+    ]
+  },
+
+  {
+    "name": "customizeGMB",
+    "type": "boolean",
+    "label": "⚙️ Customize Google Business",
+    "nested": [
+      {
+        "name": "gmbEventType",
+        "type": "select",
+        "label": "Post Type",
+        "default": "STANDARD",
+        "options": [
+          {"label": "Standard Update", "value": "STANDARD"},
+          {"label": "Event", "value": "EVENT"},
+          {"label": "Offer", "value": "OFFER"}
+        ]
+      },
+      {
+        "name": "gmbTitle",
+        "type": "text",
+        "label": "Event/Offer Title"
+      },
+      {
+        "name": "gmbStartDate",
+        "type": "date",
+        "label": "Start Date",
+        "time": true
+      },
+      {
+        "name": "gmbEndDate",
+        "type": "date",
+        "label": "End Date",
+        "time": true
+      },
+      {
+        "name": "gmbActionType",
+        "type": "select",
+        "label": "Call to Action",
+        "options": [
+          {"label": "None", "value": "none"},
+          {"label": "Book", "value": "book"},
+          {"label": "Order", "value": "order"},
+          {"label": "Shop", "value": "shop"},
+          {"label": "Learn More", "value": "learn_more"},
+          {"label": "Call", "value": "call"},
+          {"label": "Sign Up", "value": "sign_up"}
+        ]
+      },
+      {
+        "name": "gmbUrl",
+        "type": "url",
+        "label": "Action URL"
+      },
+      {
+        "name": "gmbCouponCode",
+        "type": "text",
+        "label": "Coupon Code",
+        "help": "For Offer posts only"
+      },
+      {
+        "name": "gmbRedeemOnlineUrl",
+        "type": "url",
+        "label": "Redeem Online URL"
+      },
+      {
+        "name": "gmbTermsConditions",
+        "type": "url",
+        "label": "Terms & Conditions URL"
+      }
+    ]
+  },
+
+  {
+    "name": "customizePinterest",
+    "type": "boolean",
+    "label": "⚙️ Customize Pinterest",
+    "nested": [
+      {
+        "name": "pinterestTitle",
+        "type": "text",
+        "label": "Pin Title"
+      },
+      {
+        "name": "pinterestLink",
+        "type": "url",
+        "label": "Pin Destination Link"
+      },
+      {
+        "name": "pinterestBoardId",
+        "type": "select",
+        "label": "Pinterest Board",
+        "options": "rpc://getPinterestBoards",
+        "help": "Select the board to pin to"
+      }
+    ]
+  },
+
+  {
+    "name": "enableApproval",
+    "type": "boolean",
+    "label": "📋 Require Approval",
+    "nested": [
+      {
+        "name": "approverId",
+        "type": "select",
+        "label": "Approver",
+        "options": "rpc://getUsers",
+        "help": "Select user who should approve this post"
+      },
+      {
+        "name": "requesterNote",
+        "type": "text",
+        "label": "Note to Approver",
+        "multiline": true
+      }
+    ]
+  }
+]

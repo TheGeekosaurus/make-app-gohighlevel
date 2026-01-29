@@ -1,0 +1,12 @@
+[
+    "contacts.readonly",
+    "contacts.write",
+    "locations.readonly",
+    "socialplanner/account.readonly",
+    "socialplanner/post.readonly",
+    "socialplanner/post.write",
+    "socialplanner/tag.readonly",
+    "socialplanner/category.readonly",
+    "users.readonly",
+    "medias.write"
+]

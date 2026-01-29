@@ -1,0 +1,16 @@
+[
+    {
+        "name": "clientId",
+        "type": "text",
+        "label": "Client ID",
+        "advanced": true,
+        "editable": true
+    },
+    {
+        "name": "clientSecret",
+        "type": "password",
+        "label": "Client Secret",
+        "advanced": true,
+        "editable": true
+    }
+]

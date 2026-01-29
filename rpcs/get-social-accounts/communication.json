@@ -1,0 +1,15 @@
+{
+    "url": "/social-media-posting/{{connection.locationId}}/accounts",
+    "method": "GET",
+    "headers": {
+        "Authorization": "Bearer {{connection.accessToken}}",
+        "Version": "2021-07-28"
+    },
+    "response": {
+        "iterate": "{{body.results.accounts}}",
+        "output": {
+            "label": "{{item.name}} ({{item.platform}})",
+            "value": "{{item.id}}"
+        }
+    }
+}
