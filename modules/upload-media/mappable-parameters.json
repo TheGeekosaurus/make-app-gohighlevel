@@ -1,0 +1,23 @@
+[
+  {
+    "name": "file_name",
+    "type": "text",
+    "label": "File Name",
+    "required": true,
+    "semantic": "file:name",
+    "help": "File name WITH extension (e.g., video.mp4)"
+  },
+  {
+    "name": "file_data",
+    "type": "buffer",
+    "label": "File Data",
+    "required": true,
+    "semantic": "file:data"
+  },
+  {
+    "name": "parentId",
+    "type": "text",
+    "label": "Folder ID",
+    "help": "Optional folder ID to upload into"
+  }
+]
