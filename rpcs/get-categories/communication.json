@@ -1,0 +1,11 @@
+{
+  "url": "/social-media-posting/{{connection.locationId}}/categories",
+  "method": "GET",
+  "response": {
+    "iterate": "{{body.categories}}",
+    "output": {
+      "label": "{{item.name}}",
+      "value": "{{item.id}}"
+    }
+  }
+}
