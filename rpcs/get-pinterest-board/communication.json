@@ -1,0 +1,14 @@
+{
+  "url": "/social-media-posting/{{connection.locationId}}/accounts",
+  "method": "GET",
+  "response": {
+    "iterate": {
+      "container": "{{body.results.accounts}}",
+      "condition": "{{item.platform = 'pinterest'}}"
+    },
+    "output": {
+      "label": "{{item.name}}",
+      "value": "{{item.id}}"
+    }
+  }
+}
