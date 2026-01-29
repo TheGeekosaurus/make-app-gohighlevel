@@ -1,0 +1,42 @@
+[
+  {
+    "name": "id",
+    "type": "text",
+    "label": "Post ID"
+  },
+  {
+    "name": "locationId",
+    "type": "text",
+    "label": "Location ID"
+  },
+  {
+    "name": "status",
+    "type": "text",
+    "label": "Status"
+  },
+  {
+    "name": "summary",
+    "type": "text",
+    "label": "Post Content"
+  },
+  {
+    "name": "type",
+    "type": "text",
+    "label": "Post Type"
+  },
+  {
+    "name": "accountIds",
+    "type": "array",
+    "label": "Account IDs"
+  },
+  {
+    "name": "createdAt",
+    "type": "date",
+    "label": "Created At"
+  },
+  {
+    "name": "scheduleDate",
+    "type": "date",
+    "label": "Scheduled At"
+  }
+]
