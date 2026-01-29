@@ -1,0 +1,7 @@
+{
+    "baseUrl": "https://services.leadconnectorhq.com",
+    "headers": {
+        "Authorization": "Bearer {{connection.accessToken}}",
+        "Version": "2021-07-28"
+    }
+}
