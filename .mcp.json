@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
+    },
+    "make-docs": {
+      "type": "sse",
+      "url": "https://developers.make.com/custom-apps-documentation/~gitbook/mcp"
+    }
+  }
+}
